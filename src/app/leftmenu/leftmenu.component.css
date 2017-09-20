@@ -1,0 +1,38 @@
+ .leftMenu
+ {
+  list-style: none;
+  margin-top:115px;
+  margin-left:50px;
+  position: fixed;
+ }
+ .leftMenu li
+ {
+  margin-top:15px;
+  transition: all 0.1s;
+ }
+ .leftMenu li a
+ {
+  text-decoration: none;
+  font-size:18px;
+  padding-left:5px;
+  font-family: 'Open Sans';
+  color:#222222;
+  transition:0.1s all;
+ }
+ .leftMenu li a:hover
+ {
+  transition:0.1s all;       
+  opacity:1;
+  padding-left:12px;
+  color:#4b82ff;
+ }
+ .leftMenu li a span
+ {
+  position:absolute;
+  margin-top:0px;
+  margin-left:9px;
+ }
+.active > a > span
+{
+ color:#4b82ff;
+}

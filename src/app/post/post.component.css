@@ -1,0 +1,159 @@
+.container
+{
+ width:400px;
+ height:auto;
+ position: relative;
+ perspective: 800px;
+ transform-style: preserve-3d;
+ transition: all 0.5s;
+ cursor: pointer;
+ display: inline-block;
+ margin:10px 50px;
+ font-family: 'Open Sans';
+}
+.post
+{
+ position: absolute;
+ height:auto;
+ width:400px;
+ margin-top: 40px;
+ background:white;
+ border:1px solid rgba(0,0,0,.2);
+ border-radius:2px;
+ backface-visibility: hidden; 
+ transition: all 0.3s;
+}
+.post:hover
+{
+ box-shadow: 1px 1px 5px black;
+}
+.post:hover .author
+{
+ color: rgba(0,0,0,.5);
+}
+.post:hover .date
+{
+ transition: 0.5s all;
+ opacity: 1;
+}
+.post > .author
+ {
+  color:rgba(0,0,0,.2);
+  position: absolute;
+  top: -30px;
+  left:285px;
+ }
+.post > .header
+{
+ font-size:21px;
+ padding:15px 15px;
+ border-right: 4px solid lime;
+}
+.post > .dream
+{
+ word-wrap: break-word;
+ line-height: 25px;
+ padding: 0px 10px;
+ font-size:16px;
+}
+.post > .images img
+{
+ margin:auto;
+}
+.post > .forever
+{
+  padding:10px;
+  opacity: 0.5;
+  font-size:14px;
+  display: block;
+  text-align: left;
+}
+.post > .date
+{
+ padding:15px 10px;
+ color: rgba(0,0,0,.4);
+ text-align: right;
+ opacity: 0;
+ transition: 0.5s all;
+}
+.post > .comments
+{
+ border-top:1px solid rgba(0,0,0,.2);
+}
+
+.options
+{
+ position: absolute;
+ height:500px;
+ width:400px;
+ margin-top: 40px;
+ background:white;
+ border:1px solid rgba(0,0,0,.2);
+ border-radius:2px;
+ transition: all 0.3s;
+ backface-visibility: hidden; 
+ transform: rotateY( 180deg ); 
+}
+.options > .clocker
+{
+ height:75px;
+ width: 150px;
+ background-color: white;
+ text-align: center;
+ margin:25px auto;
+ font-size:16px;
+ color:rgba(0,0,0);
+}
+
+.options > .clocker > .bigDate
+{
+ padding:15px;
+ border-bottom: 1px solid rgba(0,0,0,.2);
+}
+.options > .clocker > .smallDate
+{
+ padding:15px;
+}
+
+.options > .forText
+{
+ float:left;
+ width:350px;
+ display: inline;
+ padding:10px;
+ margin-bottom: 10px;
+}
+.options > .sponsor
+{
+ position: relative;
+ padding:10px;
+ margin:50px 13px;
+}
+.member
+{
+ width:150px;
+ height:50px;
+ margin:5px 5px;
+ background-color: white;
+ text-overflow: ellipsis;   
+ overflow:hidden;
+ border-radius: 3px;
+ border: 1px solid rgba(0,0,0,.2);
+ padding:5px;
+ transition: 0.5s all;
+ display: inline-block;
+}
+  .member:hover
+  {
+   box-shadow: 1px 1px 2px black;
+   cursor: pointer;
+  }
+  .member span
+  {
+   color:grey;
+   font-family: 'Open Sans';
+   font-size:12px;
+     display: block;
+     text-align: center;
+     padding:13px;
+  }

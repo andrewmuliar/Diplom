@@ -1,0 +1,33 @@
+ <main class="main">
+    <md-input-container style="width:360px; left:33%;">
+        <input type="text" 
+        placeholder="Знайти..." 
+        value="" 
+        [(ngModel)] = "queryString"
+        (keyup.enter) = "search(queryString); showSearch = true"
+        (keyup) = "searchList = []"
+        mdInput
+        />      
+    </md-input-container>
+  <div style="margin-left:25%;" *ngIf = "!friends">
+     <img src="https://media.giphy.com/media/RVW5PilbP2tLG/giphy.gif"/>
+  </div>
+ 
+  <ul style="list-style:none;">
+    <li *ngFor = "let friend of friends | FriendsPipe:'username': queryString">
+      <div class="blockFriend" *ngIf = 'friend !== -1'>
+        <div [ngStyle]="{'background-image': 'url(' + friend.photourl + ')'}" class="avatar"></div>
+        <p style="font-size:21px;">{{friend.username}} {{friend.uid}}</p>
+        <p style="font-size:18px; color:lime;">Friends</p>  
+      </div>
+    </li>
+    <p *ngIf = "(queryString != null) && (showSearch == false)" >
+      (Натисніть Enter в полі пошуку для отримання розширених результатів)
+    </p>
+  </ul>
+    <div class="blockFriend" *ngFor="let searchli of searchList">
+     <div [ngStyle]="{'background-image': 'url(' + searchli.photourl + ')'}" class="avatar"></div>
+      <p style="font-size:21px;">{{searchli.username}}, {{searchli.uid}}</p>
+      <input type="button" value="Додати" (click) = "addToFriend(searchli.id)">
+    </div> 
+</main>
