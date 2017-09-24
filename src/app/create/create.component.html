@@ -1,7 +1,6 @@
- <main style="margin-top: 50px; width:1110px; background-color: #f0f2f4; height: 650px; 
-              margin-left: 350px; padding-top:25px; padding-left:15px;">
+ <main class="main">
   <div style="width:100%;">
-  <form #form ="ngForm" (ngSubmit) = "submit(form)">
+  <form #form ="ngForm" (ngSubmit) = "submit(form, members)">
    <!-- <input type="text" 
           placeholder="Заголовок..." 
           ngModel
@@ -31,12 +30,12 @@
     <!-- <label style="font-size:18px; font-family:'Open Sans';">
       <input type="checkbox" value="comments" ngModel #comment = "ngModel" name="comment">
     Дозволити коментарі</label> -->
-    <md-checkbox>Дозволити коментарі</md-checkbox>
+    <md-checkbox [value] = "comments" ngModel #comment = "ngModel" name="comment">Дозволити коментарі</md-checkbox>
     <br/>
     <!-- <label style="font-family: 'Open Sans'; font-size:18px;">
       <input type="checkbox" ngModel #forever = "ngModel" name = "forever" value="forever">Вічна мрія</label>
     <br/> -->
-    <md-checkbox>Вічна мрія</md-checkbox>    
+    <md-checkbox ngModel #forever = "ngModel" name = "forever">Вічна мрія</md-checkbox>    
     <label style="font-size:18px; font-family:'Open Sans';">Дата виконання: 
       <input 
             type="date" 
@@ -49,7 +48,7 @@
       <input type="text" placeholder="Описати словами..." style="width:25%; font-size: 18px;
      border: 0px; border-bottom: 1px solid grey; padding:5px; font-family: 'Open Sans'; background-color: whitesmoke;" >
     <br/>
-    <!--  <label style="font-family: 'Open Sans'; font-size:18px; margin-left:470px;">Доступність 
+     <!-- <label style="font-family: 'Open Sans'; font-size:18px; margin-left:470px;">Доступність 
     <select ngModel name = "vision" #vision = "ngModel" style="font-size:16px; background-color: whitesmoke;">
       <option value="0">Лише Я</option>
       <option value="1">Доступно кожному</option>
@@ -58,9 +57,21 @@
       <option *ngFor="let group of groups" [value]="group.id">
         {{group.name}}
       </option>
-    </select>  </label>-->
-    <md-button-toggle (click) = "OpenDialog()">Open Dialog</md-button-toggle>
-    <md-select  placeholder="Доступність">
+    </select>  </label> -->
+    <div style="">
+    <input type = "text" placeholder = "Знайти друга..." />
+     <ul>
+      <li *ngFor = "let friend of friendData">
+        <md-checkbox ngModel name = "mem" #mem = "ngModel" [value] = "friend.uid" [id] = "friend.username" (change) = "checkFriend($event)">{{friend.username}}</md-checkbox>
+      </li>
+     </ul>
+     <ul>
+       <li *ngFor = "let member of members">
+        {{member.username}}
+      </li>
+     </ul>
+    </div>
+    <md-select  placeholder="Доступність" ngModel name = "vision" #vision = "ngModel">
      <md-option value="0">Лише Я</md-option>
      <md-option value="1">Доступно кожному</md-option>
      <md-option value="2">Лише друзям</md-option>
@@ -74,8 +85,7 @@
                 position: absolute; top:185px; left:850px;">
      Додати зображення, що характеризують задум...
     </div> -->
-    <input type="submit" class="but" style="margin-left:30px; margin-top:100px;" value="Go">
-    <md-button-toggle type="submit">Готово!</md-button-toggle>    
+    <input type="submit" class="but" style="margin-left:30px; margin-top:100px;" value="Створити">
   </form>
   </div>
 </main>

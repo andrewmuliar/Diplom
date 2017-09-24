@@ -1,0 +1,16 @@
+.main
+{
+ margin-top: 50px;
+ margin-left: 280px;
+ width:1221px; 
+ height: 900px; 
+ background-color: whitesmoke;
+}
+.example-card {
+    width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://lh3.googleusercontent.com/-JrWkqY0lFLQ/AAAAAAAAAAI/AAAAAAAAAtE/42eOixISqyo/photo.jpg');
+    background-size: cover;
+  }

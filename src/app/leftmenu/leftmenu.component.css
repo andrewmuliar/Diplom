@@ -23,8 +23,8 @@
  {
   transition:0.1s all;       
   opacity:1;
-  padding-left:12px;
   color:#4b82ff;
+  transform: scale(1.05);  
  }
  .leftMenu li a span
  {
@@ -34,5 +34,5 @@
  }
 .active > a > span
 {
- color:#4b82ff;
+ color:#ff4733;
 }

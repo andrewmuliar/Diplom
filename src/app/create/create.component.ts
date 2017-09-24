@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DreamService } from '../services/dream/dream.service';
+import { FriendsService} from '../services/friends/friends.service';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs/Observable';
-
-import { DialogComponent } from '../dialog/dialog.component';
-import { MdDialog } from '@angular/material';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
@@ -19,11 +17,14 @@ export class CreateComponent implements OnInit {
   constructor(private dream: DreamService, 
               private Auth:AuthService, 
               private db: AngularFireDatabase,
-              private dialog:MdDialog) {}
+              private fr:FriendsService
+             ) {}
   
   private fireUID:string = '';
   private dreams: FirebaseListObservable<any[]>;
   private groups: any;
+  private friendData:any;
+  private members:Array<any> = []
 
   ngOnInit() 
   {
@@ -31,6 +32,12 @@ export class CreateComponent implements OnInit {
    this.Auth.currentUserObservable
    .subscribe(data => this.dream.getGroups(data.uid)
               .subscribe(groups => this.groups = JSON.parse(groups.text())))
+   this.fr.getFriends(localStorage.getItem("userUID"))
+          .subscribe( data => 
+                      {
+                       this.friendData = JSON.parse(data.text()); 
+                       console.log(JSON.parse(data.text()))
+                      })
   } 
 
 firePost(dream)
@@ -43,15 +50,21 @@ firePost(dream)
    this.dreams.update(this.fireUID,{"posts":dream.value})
 }
 
-
-submit(data)
+checkFriend($e)
+{
+ if($e.checked == true)
   {
-   console.log(data)
+   this.members.push({"username":$e.source.id, "uid":$e.source.value})
+  }
+}
+
+submit(data, members)
+  {
+   //console.log(data.value, members)
+   let fullData = []
+   fullData.push(data.value)
+   fullData.push(members)
+   console.log(fullData[1][0].username)
   // this.dream.createDream(data,this.Auth.currentUserId).subscribe( data => console.log(data))
   }
-
- OpenDialog()
- {
-  this.dialog.open(DialogComponent, {width:'400px', height:'450px', data:{course:232}})
- }
 }

@@ -13,7 +13,7 @@ import  { MdCheckboxModule,
           MdInputModule, 
           MdDatepickerModule, 
           MdButtonToggleModule,
-          MdDialogModule } from '@angular/material';
+          MdCardModule } from '@angular/material';
 
 /*Directives*/
 import { NgInit  } from './directives/ngInit.directive';
@@ -39,7 +39,6 @@ import { environment } from '../environments/environment';
 /*Мої Компоненти */
 import { AppComponent } from './app.component';
 import { LoginComponent} from './login/login.component';
-import { RoomsComponent} from './rooms/rooms.component';
 import { LeftmenuComponent } from './leftmenu/leftmenu.component';
 import { TopmenuComponent } from './topmenu/topmenu.component';
 import { MotivationComponent } from './motivation/motivation.component';
@@ -49,11 +48,9 @@ import { GodlikeComponent } from './godlike/godlike.component';
 import { groupsComponent } from './groups/groups.component';
 import { PostComponent } from './post/post.component';
 import { NewsComponent } from './news/news.component';
-import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
 
-  entryComponents: [ DialogComponent ],
   imports: [
 
     BrowserModule,
@@ -64,7 +61,7 @@ import { DialogComponent } from './dialog/dialog.component';
     MdInputModule,  
     MdDatepickerModule,  
     MdButtonToggleModule,
-    MdDialogModule,
+    MdCardModule,
     
     HttpModule, 
     FormsModule,
@@ -99,11 +96,6 @@ import { DialogComponent } from './dialog/dialog.component';
        canActivate: [AuthGuard]
       },
       {
-        path: 'rooms',
-        component:RoomsComponent,
-        canActivate: [AuthGuard]
-      },
-      {
         path: 'create',
         component: CreateComponent,
         canActivate: [AuthGuard]
@@ -125,7 +117,6 @@ import { DialogComponent } from './dialog/dialog.component';
     LeftmenuComponent,
     TopmenuComponent,
     MotivationComponent,
-    RoomsComponent,
     FriendsComponent,
     CreateComponent,
     GodlikeComponent,
@@ -133,9 +124,8 @@ import { DialogComponent } from './dialog/dialog.component';
     FriendsPipe,
     NgInit,
     PostComponent,
-    NewsComponent,
-    DialogComponent
-],
+    NewsComponent
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
