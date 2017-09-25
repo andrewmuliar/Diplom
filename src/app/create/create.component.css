@@ -31,16 +31,18 @@
  font-size: 25px; 
  background-color: whitesmoke; 
  font-family: 'Open Sans';
+ position: relative;
+ margin: 5px;
 }
 .textarea
 {
  font-size: 18px; 
  font-family: 'Open Sans'; 
- width:450px; 
  height: 250px; 
  border:0px; 
  resize: none; 
- margin-top:15px; 
- margin-bottom: 45px; 
  background-color: white;
+ display:block; 
+ float:left; 
+ width:450px;
 }

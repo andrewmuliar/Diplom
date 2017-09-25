@@ -5,4 +5,5 @@
  width:1221px; 
  height: 900px; 
  background-color: whitesmoke;
+ overflow: auto;
 }

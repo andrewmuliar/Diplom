@@ -10,13 +10,14 @@
           required
           (change) = "firePost(header)"
     /> -->
-  <md-input-container>
-    <input type="text" ngModel name = "head" class="header" mdInput placeholder="Заголовок..." required >
+  <md-input-container style="margin-left:30px; margin-bottom:0px;">
+    <input type="text" class="header" ngModel name = "head" class="header" mdInput placeholder="Заголовок..." required >
     <md-error>
       Не залишайте мене пустим...
     </md-error>
   </md-input-container>
-  <md-input-container>
+  <div>    
+  <md-input-container style="margin-left:30px; margin-top:15px; margin-right:30px; display:block; float:left; width:450px;">
     <textarea placeholder="Зміст мрії..." 
               ngModel
               #dream = "ngModel"
@@ -30,13 +31,18 @@
     <!-- <label style="font-size:18px; font-family:'Open Sans';">
       <input type="checkbox" value="comments" ngModel #comment = "ngModel" name="comment">
     Дозволити коментарі</label> -->
-    <md-checkbox [value] = "comments" ngModel #comment = "ngModel" name="comment">Дозволити коментарі</md-checkbox>
+    <md-checkbox [value] = "comments" ngModel #comment = "ngModel" style="margin-top:50px; position:absolute;" name="comment">Дозволити коментарі</md-checkbox>
     <br/>
     <!-- <label style="font-family: 'Open Sans'; font-size:18px;">
       <input type="checkbox" ngModel #forever = "ngModel" name = "forever" value="forever">Вічна мрія</label>
     <br/> -->
-    <md-checkbox ngModel #forever = "ngModel" name = "forever">Вічна мрія</md-checkbox>    
-    <label style="font-size:18px; font-family:'Open Sans';">Дата виконання: 
+    <md-checkbox ngModel #forever = "ngModel" name = "forever" style="margin-top:65px; position:absolute;">Вічна мрія</md-checkbox>    
+    <!-- <md-form-field>
+      <input mdInput [mdDatepicker]="picker" placeholder="Дата виконання:">
+      <md-datepicker-toggle mdSuffix [for]="picker">Дата виконання:</md-datepicker-toggle>
+      <md-datepicker #picker></md-datepicker>
+    </md-form-field> -->
+    <label style="font-size:18px; font-family:'Open Sans'; position:absolute; margin-top:95px; ">Дата виконання: 
       <input 
             type="date" 
             name="day" 
@@ -44,9 +50,8 @@
             ngModel
             #day = "ngModel"
             mdInput
-     style="width:25%; font-size: 18px; border: 0px; border-bottom: 1px solid grey; padding:5px; font-family: 'Open Sans'; font-size:16px; background-color: whitesmoke;"></label> <span style="font-size:36px;">|</span>
-      <input type="text" placeholder="Описати словами..." style="width:25%; font-size: 18px;
-     border: 0px; border-bottom: 1px solid grey; padding:5px; font-family: 'Open Sans'; background-color: whitesmoke;" >
+     style="width:168px; font-size: 18px; border: 0px; border-bottom: 1px solid grey; padding:5px; font-family: 'Open Sans'; font-size:16px; background-color: whitesmoke;">
+    </label>
     <br/>
      <!-- <label style="font-family: 'Open Sans'; font-size:18px; margin-left:470px;">Доступність 
     <select ngModel name = "vision" #vision = "ngModel" style="font-size:16px; background-color: whitesmoke;">
@@ -58,9 +63,8 @@
         {{group.name}}
       </option>
     </select>  </label> -->
-    <div style="">
-    <input type = "text" placeholder = "Знайти друга..." />
-     <ul>
+    <div style="position:absolute; margin-top:0x; left:1175px;">
+     <ul style="list-style:none;">
       <li *ngFor = "let friend of friendData">
         <md-checkbox ngModel name = "mem" #mem = "ngModel" [value] = "friend.uid" [id] = "friend.username" (change) = "checkFriend($event)">{{friend.username}}</md-checkbox>
       </li>
@@ -71,7 +75,9 @@
       </li>
      </ul>
     </div>
-    <md-select  placeholder="Доступність" ngModel name = "vision" #vision = "ngModel">
+   <div>
+    <md-select  placeholder="Доступність" ngModel name = "vision" #vision = "ngModel"
+     style="float:left; margin-top:425px;">
      <md-option value="0">Лише Я</md-option>
      <md-option value="1">Доступно кожному</md-option>
      <md-option value="2">Лише друзям</md-option>
@@ -80,12 +86,14 @@
         {{group.name}}      
      </md-option>
     </md-select>
+    <input type="submit" class="but" style="margin-left:30px; margin-top:425px; position:absoulte;" value="Створити">    
+   </div>
+  </div>
     <!-- <div style="width:250px; height: 155px; background-color:#FAFBFC; 
                 border: dotted 2px grey; text-align: center; font-size:14px; font-family:'Open Sans'; padding-top:100px; 
                 position: absolute; top:185px; left:850px;">
      Додати зображення, що характеризують задум...
     </div> -->
-    <input type="submit" class="but" style="margin-left:30px; margin-top:100px;" value="Створити">
   </form>
   </div>
 </main>

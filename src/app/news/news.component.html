@@ -1,3 +1,17 @@
 <main class="main">
+    <div style="margin-left:25%;" *ngIf = "!news">                
+        <div class="container">
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+              </div> 
+    </div> 
  <post [data] = 'new' *ngFor = "let new of news"></post>
 </main>
