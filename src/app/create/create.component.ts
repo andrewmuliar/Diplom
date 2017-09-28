@@ -44,10 +44,10 @@ firePost(dream)
 {
   if(this.fireUID == "")
   {
-   this.fireUID = this.dreams.push({"posts":dream.value}).key
+   this.fireUID = this.dreams.push({"posts":dream.target.value}).key
   }
   else
-   this.dreams.update(this.fireUID,{"posts":dream.value})
+   this.dreams.update(this.fireUID,{"posts":dream.target.value})
 }
 
 checkFriend($e)
@@ -64,7 +64,7 @@ submit(data, members)
    let fullData = []
    fullData.push(data.value)
    fullData.push(members)
-   console.log(fullData[1][0].username)
-  // this.dream.createDream(data,this.Auth.currentUserId).subscribe( data => console.log(data))
+   console.log("sumbit= "+fullData)
+   this.dream.createDream(data, this.Auth.currentUserId).subscribe( data => console.log(data))
   }
 }

@@ -11,7 +11,15 @@
           (change) = "firePost(header)"
     /> -->
   <md-input-container style="margin-left:30px; margin-bottom:0px;">
-    <input type="text" class="header" ngModel name = "head" class="header" mdInput placeholder="Заголовок..." required >
+    <input type="text" class="header"
+           ngModel 
+           name = "header" 
+           #header = "ngModel"
+           class="header"
+           mdInput 
+           placeholder="Заголовок..." 
+           (change) = "firePost($event)"
+           required >
     <md-error>
       Не залишайте мене пустим...
     </md-error>
@@ -31,7 +39,8 @@
     <!-- <label style="font-size:18px; font-family:'Open Sans';">
       <input type="checkbox" value="comments" ngModel #comment = "ngModel" name="comment">
     Дозволити коментарі</label> -->
-    <md-checkbox [value] = "comments" ngModel #comment = "ngModel" style="margin-top:50px; position:absolute;" name="comment">Дозволити коментарі</md-checkbox>
+    <md-checkbox [value] = "comments" 
+                 ngModel #comment = "ngModel" style="margin-top:50px; position:absolute;" name="comment">Дозволити коментарі</md-checkbox>
     <br/>
     <!-- <label style="font-family: 'Open Sans'; font-size:18px;">
       <input type="checkbox" ngModel #forever = "ngModel" name = "forever" value="forever">Вічна мрія</label>

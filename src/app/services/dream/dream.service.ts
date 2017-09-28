@@ -41,6 +41,7 @@ createDream(data, user)
             "vision":data.value.vision,
             "user":user
           }
+ console.log(data)
  let headers = new Headers();
  headers.append('Content-Type', 'application/json; charset=UTF-8'); 
  return this._http.post(fullUrl, toSend, {headers:headers})
